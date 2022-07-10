@@ -6,25 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-do list</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Splash&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
 
     <div class="container">
-    
+        <h1 class="title">To-do</h1>
         <div class="entrada-tarefa">
+         
             <input type="text" class="entrada-dados">
             <button type="button" onclick="adicionarTarefa()">Adicionar</button>
         </div>
-
+        <div class="subtitulo">
+        <h1 class="labels">A fazer</h1><span class="material-symbols-outlined icones-sub">
+            pending_actions
+        </div>
+      
         <div class="tarefas-adicionadas">
             <span class="item-adicionado"></span>
         </div>
-
+        <div class="subtitulo">
+        <h1 class="labels">Concluídas</h1><span class="material-symbols-outlined icones-sub">
+            check
+            </span>
+        </div>
         <div class="tarefas-concluidas">  
         </div>
     </div>
 
     
-    <script src="/JS/refatorando.js"></script>
+    <script src="/JS/main.js"></script>
 </body>
 </html>

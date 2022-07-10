@@ -13,8 +13,9 @@ function adicionarTarefa() {
   tarefasAdicionadas.innerHTML += `<div class="item-adicionado" id='${tarefa.id}'>
     <input type="checkbox" class="check" id="checkbox${tarefa.id}">
     <span>${tarefa.descricao}</span>
-    <button type="button" id="botao-editar" onclick="editar()">editar</button>
-    <button type="button" id="botao-excluir" onclick="excluir()">excluir</button>
+    <span class="material-symbols-outlined lixeira">
+delete
+</span><hr>
   </div>`;
 
   document
@@ -57,15 +58,17 @@ function recuperarDados() {
       tarefasConcluidas.innerHTML += `<div class="item-adicionado" id='${tarefa.id}'>
       <input type="checkbox" class="check" id="checkbox${tarefa.id}" checked>
       <span>${tarefa.descricao}</span>
-      <button type="button" id="botao-editar" onclick="editar()">editar</button>
-      <button type="button" id="botao-excluir" onclick="excluir()">excluir</button>
+      <span class="material-symbols-outlined lixeira">
+      delete
+      </span><hr>
     </div>`;
     } else {
       tarefasAdicionadas.innerHTML += `<div class="item-adicionado" id='${tarefa.id}'>
       <input type="checkbox" class="check" id="checkbox${tarefa.id}">
       <span>${tarefa.descricao}</span>
-      <button type="button" id="botao-editar" onclick="editar()">editar</button>
-      <button type="button" id="botao-excluir" onclick="excluir()">excluir</button>
+      <span class="material-symbols-outlined lixeira">
+      delete
+      </span><hr>
     </div>`;
     }
     console.log("adicionando listen em #checkbox" + tarefa.id);
@@ -73,7 +76,6 @@ function recuperarDados() {
       .querySelector(`#checkbox${tarefa.id}`)
       .addEventListener("change", (e) => {
         validandoTarefa(tarefa.id, e.target.checked);
-        console.log("pedrao em #checkbox" + tarefa.id);
       });
   });
 
