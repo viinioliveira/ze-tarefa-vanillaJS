@@ -10,10 +10,10 @@ function adicionarTarefa() {
   tarefa.descricao = document.querySelector(".entrada-dados").value;
   const tarefaAdicionada = document.querySelector(".tarefas-adicionadas");
 
-  tarefaAdicionada.innerHTML += `<div class="item-adicionado" id='id_${tarefa.id}'>
+  tarefaAdicionada.innerHTML += `<div class="item-adicionado" id="id_${tarefa.id}">
   <span class="textotarefa">${tarefa.descricao}</span>
   <div class="botoes">
-  <span class="material-symbols-outlined validar" onclick="validar()">
+  <span class="material-symbols-outlined validar botao${tarefa.id}">
 done
 </span>
 <span class="material-symbols-outlined fechar">
@@ -25,6 +25,13 @@ close
 </div>`;
 
   salvarTarefa(tarefa);
+
+  document
+    .querySelector(`.botao${tarefa.id}`)
+    .addEventListener("click", (e) => {
+      validandoTarefa(tarefa.id);
+      console.log("clique");
+    });
 }
 function salvarTarefa(tarefa) {
   tarefas.push(tarefa);
@@ -42,4 +49,16 @@ function getMaiorId() {
   return maior;
 }
 
-function validar() {}
+function validandoTarefa(idTarefa) {
+  tarefas.forEach((tarefa) => {
+    if (tarefa.id === idTarefa) {
+      tarefa.validado = true;
+      document.querySelector(
+        `#id_${tarefa.id}`
+      ).style.cssText = `text-decoration: line-through;
+      background-color: green;
+      color: white`;
+      console.log(tarefa);
+    }
+  });
+}
