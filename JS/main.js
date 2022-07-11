@@ -11,11 +11,10 @@ function adicionarTarefa() {
 
   tarefa.descricao = document.querySelector(".entrada-dados").value;
   tarefasAdicionadas.innerHTML += `<div class="item-adicionado" id='${tarefa.id}'>
-    <input type="checkbox" class="check" id="checkbox${tarefa.id}">
     <span>${tarefa.descricao}</span>
-    <span class="material-symbols-outlined lixeira">
-delete
-</span><hr>
+    <span class="material-symbols-outlined">
+close
+</span>
   </div>`;
 
   document
@@ -84,7 +83,7 @@ function recuperarDados() {
 
 function validandoTarefa(idTarefa, validada) {
   tarefas.forEach((tarefa) => {
-    if (tarefa.id === idTarefa) {
+    if (tarefa.id == idTarefa) {
       tarefa.validado = validada;
     }
   });

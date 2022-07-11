@@ -4,6 +4,7 @@ body, html {
     box-sizing: border-box;
 }
 
+
 .title {
     font-family: 'Splash', cursive;
     font-size: 60px;
@@ -20,6 +21,7 @@ body, html {
 }
 
 .container button {
+    height: 100vh;
     width: 30%;
     background-color: rgb(101, 165, 207);
     color: white;
@@ -28,12 +30,21 @@ body, html {
     border-radius: 10px;
     margin-bottom: 10px;
     margin-top: 10px;
-
-
 }
 
-.entrada-tarefa {
+.item-adicionado {
+    margin-top: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    height: 40px;
+    background-color: rgb(204, 204, 204);
+    position: relative;
+}
 
+
+.entrada-tarefa {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,11 +67,8 @@ body, html {
 
 .tarefas-adicionadas {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    height: 400px;
     border-radius: 10px;
     padding: 10px;
-    margin: 5px;
-    overflow: scroll;
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -69,55 +77,38 @@ body, html {
 
 }
 
-.check {
-    margin-right: 10px;
-}
 
-
-.item-adicionado {
-    position: relative;
-}
-
-.lixeira {
+.botoes {
+    cursor: pointer;
     position: absolute;
     right: 0;
-}
-
-.tarefas-concluidas {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-    overflow: scroll;
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    height: auto;
     padding: 10px;
-    border-radius: 15px;
-
 }
 
-.container .labels {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 20px;
-
+.fechar {
+    background-color: red;
+    color: white;
+    border-radius: 5px;
 }
 
-.subtitulo {
-
-    border-radius: 10px;
-    padding: px;
-    margin-top: 15px;
-    height: 50px;
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-
+.validar {
+    background-color: green;
+    color: white;
+    border-radius: 5px;
 }
 
-.subtitulo span {
+.validar:hover {
+    color: green;
+}
 
-    font-size: 20px;
-    margin-top: 18px;
-    margin-bottom: auto;
+.fechar:hover {
+    color: red;
+}
 
+.validada {
+    background-color: green;
+}
+
+.validado {
+    background-color: green;
 }
