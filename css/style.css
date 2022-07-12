@@ -117,19 +117,17 @@ body, html {
 }
 
 .fechar {
-    background-color: red;
-    color: white;
+
+    color: red;
     border-radius: 5px;
 }
 
 .validar {
-    background-color: green;
-    color: white;
-    border-radius: 5px;
+    color: green;
 }
 
 .validar:hover {
-    color: green;
+    color: rgb(5, 78, 5);
 }
 
 .fechar:hover {
@@ -137,6 +135,7 @@ body, html {
 }
 
 .validada {
+
     background-color: green;
 }
 

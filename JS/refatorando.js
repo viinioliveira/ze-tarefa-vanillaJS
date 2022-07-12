@@ -12,12 +12,26 @@ input.addEventListener("keyup", (e) => {
   let tecla = e.which || e.keycode;
   if (tecla === 13) {
     adicionarTarefa();
+    input.value = "";
   }
 });
+
+function dataAtual() {
+  var data = new Date();
+  var dia = String(data.getDate()).padStart(2, "0");
+  var mes = String(data.getMonth() + 1).padStart(2, "0");
+  var ano = data.getFullYear();
+
+  dataDoDia = dia + "/" + mes + "/" + ano;
+
+  return dataDoDia;
+}
 
 function adicionarTarefa() {
   let tarefa = {
     id: getMaiorId() + 1,
+    dt_criacao: dataAtual(),
+    dt_validada: "",
     descricao: "",
     validado: false,
     excluida: false,
@@ -41,12 +55,13 @@ close
   </div>
   
 </div>`;
-    tarefas.push(tarefa);
 
+    tarefas.push(tarefa);
     salvarTarefa(tarefa);
   } else {
     alert("Digite a tarefa antes de adicionar, animal!");
   }
+  input.value = "";
 }
 
 function salvarTarefa() {
@@ -72,12 +87,14 @@ function validandoTarefa(idTarefa) {
   tarefas.forEach((tarefa) => {
     if (tarefa.id === idTarefa && tarefa.validado == false) {
       tarefa.validado = true;
+      tarefa.dt_validada = dataAtual();
       document
         .querySelector(`#id_${tarefa.id}`)
         .classList.add("item-adicionado-validado");
       console.log("tarefa dentro do if", tarefa);
     } else if (tarefa.id === idTarefa) {
       tarefa.validado = false;
+      tarefa.dt_validada = "";
       document
         .querySelector(`#id_${tarefa.id}`)
         .classList.remove("item-adicionado-validado");
