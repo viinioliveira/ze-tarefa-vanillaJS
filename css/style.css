@@ -17,8 +17,6 @@ body, html {
     width: 100%;
     background-color: #FFE53B;
     background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
-
-
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -150,4 +148,91 @@ body, html {
     text-decoration: line-through;
     background-color: green;
     color: white;
+}
+
+.modal-config {
+
+    position: absolute;
+    width: 50%;
+    height: 30%;
+    background-color: white;
+    top: auto;
+    bottom: 300px;
+    border-radius: 10px;
+    visibility: hidden;
+}
+
+
+.barra-superior-modal {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    background-color: orange;
+    height: 25px;
+
+}
+
+.barra-superior-modal span {
+    color: white;
+    cursor: pointer;
+}
+
+.botao-config {
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    align-self: flex-end;
+    cursor: pointer;
+    color: white;
+}
+
+.botao-config :first-child {
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+
+.modal-config h1 {
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Pacifico', cursive;
+}
+
+.temas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+#tema1 {
+    background-color: #21D4FD;
+    background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#tema2 {
+    background-color: #FF9A8B;
+    background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    cursor: pointer;
+    margin: 10px;
+}
+
+
+#tema3 {
+    background-color: #FFE53B;
+    background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    cursor: pointer;
+    margin: 10px;
 }

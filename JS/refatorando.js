@@ -1,4 +1,19 @@
 let tarefas = [];
+let definicoes = [];
+
+let configuracoes = {
+  tema: "default",
+};
+
+const input = document.querySelector(".entrada-dados");
+
+// adicionar tarefa com enter
+input.addEventListener("keyup", (e) => {
+  let tecla = e.which || e.keycode;
+  if (tecla === 13) {
+    adicionarTarefa();
+  }
+});
 
 function adicionarTarefa() {
   let tarefa = {
@@ -9,6 +24,7 @@ function adicionarTarefa() {
   };
 
   tarefa.descricao = document.querySelector(".entrada-dados").value;
+
   const tarefaAdicionada = document.querySelector(".tarefas-adicionadas");
 
   if (tarefa.descricao != "") {
@@ -35,6 +51,10 @@ close
 
 function salvarTarefa() {
   localStorage.setItem("tarefas", JSON.stringify(tarefas));
+}
+
+function salvarDefinicoes() {
+  localStorage.setItem("definicoes", JSON.stringify(definicoes));
 }
 
 function getMaiorId() {
@@ -79,12 +99,33 @@ function removeTarefa(idTarefa) {
 
 function recuperarDados() {
   let dadosRecuperados = [];
+  let definicoesRecuperadas = [];
 
   dadosRecuperados = JSON.parse(localStorage.getItem("tarefas")) || [];
-  console.log(dadosRecuperados);
+  definicoesRecuperadas = JSON.parse(localStorage.getItem("definicoes")) || [];
 
   let tarefaAdicionada = document.querySelector(".tarefas-adicionadas");
+  container = document.querySelector(".container");
   tarefaAdicionada.innerHTML = "";
+
+  definicoesRecuperadas.forEach((tarefaAdicionada) => {
+    if (tarefaAdicionada.tema === "tema1") {
+      configuracoes.tema = "tema1";
+      container = document.querySelector(".container").style.cssText =
+        "background-color: #21D4FD;background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%)";
+    }
+    if (tarefaAdicionada.tema === "tema2") {
+      configuracoes.tema = "tema2";
+      container = document.querySelector(".container").style.cssText =
+        "background-color: #FF9A8B;background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%)";
+    }
+    if (tarefaAdicionada.tema === "tema3") {
+      configuracoes.tema = "tema3";
+      container = document.querySelector(".container").style.cssText =
+        "background-color: #FFE53B;background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%)";
+    }
+  });
+  definicoes = definicoesRecuperadas;
 
   dadosRecuperados.forEach((tarefa) => {
     if (!tarefa.excluida) {
@@ -121,4 +162,39 @@ close
   });
   tarefas = dadosRecuperados;
 }
+
+function abrirModal() {
+  const modal = (document.querySelector(".modal-config").style.visibility =
+    "visible");
+}
+
+function fecharModal() {
+  const modal = (document.querySelector(".modal-config").style.visibility =
+    "hidden");
+}
+//alterar tema
+const tema = document.querySelector(".temas");
+
+tema.addEventListener("click", (e) => {
+  definicoes = [];
+
+  if (e.target.id === "tema1") {
+    configuracoes.tema = "tema1";
+    container = document.querySelector(".container").style.cssText =
+      "background-color: #21D4FD;background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%)";
+  }
+  if (e.target.id === "tema2") {
+    configuracoes.tema = "tema2";
+    container = document.querySelector(".container").style.cssText =
+      "background-color: #FF9A8B;background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%)";
+  }
+  if (e.target.id === "tema3") {
+    configuracoes.tema = "tema3";
+    container = document.querySelector(".container").style.cssText =
+      "background-color: #FFE53B;background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%)";
+  }
+  definicoes.push(configuracoes);
+  salvarDefinicoes();
+});
+
 recuperarDados();

@@ -15,13 +15,29 @@
 <body>
 
     <div class="container">
+        <div class="botao-config" onclick="abrirModal()">
+            <span>Configurações</span>
+            <span class="material-symbols-outlined" onclick="abrirModal()">
+                settings
+                </span>
+        </div>
         <h1 class="title">Zé Tarefa</h1>
         <div class="entrada-tarefa">
-         
-            <input type="text" class="entrada-dados" placeholder="O que você pretende fazer?">
+         <input type="text" class="entrada-dados" placeholder="O que você pretende fazer?">
             <span class="material-symbols-outlined button-add" onclick="adicionarTarefa()" >
                 add_circle
                 </span>
+        </div>
+        <div class="modal-config">
+            <div class="barra-superior-modal"><span class="material-symbols-outlined" onclick="fecharModal()">
+                close
+                </span></div>
+            <h1>temas</h1>
+                <div class="temas">
+                    <div class="tema" id="tema1"></div>
+                    <div class="tema" id="tema2"></div>
+                    <div class="tema" id="tema3"></div>
+                </div>
         </div>
        
       
