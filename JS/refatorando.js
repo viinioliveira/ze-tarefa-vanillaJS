@@ -13,7 +13,7 @@ function adicionarTarefa() {
   tarefaAdicionada.innerHTML += `<div class="item-adicionado" id="id_${tarefa.id}">
   <span class="textotarefa">${tarefa.descricao}</span>
   <div class="botoes">
-  <span class="material-symbols-outlined validar botao${tarefa.id}">
+  <span class="material-symbols-outlined validar botao${tarefa.id}"  onclick=validandoTarefa(${tarefa.id})>
 done
 </span>
 <span class="material-symbols-outlined fechar">
@@ -25,14 +25,8 @@ close
 </div>`;
 
   salvarTarefa(tarefa);
-
-  document
-    .querySelector(`.botao${tarefa.id}`)
-    .addEventListener("click", (e) => {
-      validandoTarefa(tarefa.id);
-      console.log("clique");
-    });
 }
+
 function salvarTarefa(tarefa) {
   tarefas.push(tarefa);
   localStorage.setItem("tarefas", JSON.stringify(tarefas));
@@ -51,14 +45,18 @@ function getMaiorId() {
 
 function validandoTarefa(idTarefa) {
   tarefas.forEach((tarefa) => {
-    if (tarefa.id === idTarefa) {
+    if (tarefa.id === idTarefa && tarefa.validado === false) {
       tarefa.validado = true;
-      document.querySelector(
-        `#id_${tarefa.id}`
-      ).style.cssText = `text-decoration: line-through;
-      background-color: green;
-      color: white`;
-      console.log(tarefa);
+      document
+        .querySelector(`#id_${tarefa.id}`)
+        .classList.add("item-adicionado-validado");
+      console.log("tarefa dentro do if", tarefa);
+    } else {
+      tarefa.validado = false;
+      document
+        .querySelector(`#id_${tarefa.id}`)
+        .classList.remove("item-adicionado-validado");
+      console.log("tarefa dentro do else", tarefa);
     }
   });
 }

@@ -112,3 +112,9 @@ body, html {
 .validado {
     background-color: green;
 }
+
+.item-adicionado-validado {
+    text-decoration: line-through;
+    background-color: green;
+    color: white;
+}
