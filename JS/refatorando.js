@@ -43,14 +43,16 @@ function adicionarTarefa() {
 
   if (tarefa.descricao != "") {
     tarefaAdicionada.innerHTML += `<div class="item-adicionado" id="id_${tarefa.id}">
-  <span class="textotarefa">${tarefa.descricao}</span>
-  <div class="botoes">
-  <span class="material-symbols-outlined validar botao${tarefa.id}"  onclick=validandoTarefa(${tarefa.id})>
-done
-</span>
-<span class="material-symbols-outlined fechar" onclick=removeTarefa(${tarefa.id})>
-close
-</span>
+        <div class="descricao">
+          <span class="textotarefa">${tarefa.descricao}</span>
+        </div>
+        <div class="botoes">
+          <span class="material-symbols-outlined validar botao${tarefa.id}"  onclick=validandoTarefa(${tarefa.id})>
+            done
+          </span>
+          <span class="material-symbols-outlined fechar" onclick=removeTarefa(${tarefa.id})>
+            close
+          </span>
 
   </div>
   
