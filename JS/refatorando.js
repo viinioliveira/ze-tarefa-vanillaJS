@@ -216,4 +216,11 @@ tema.addEventListener("click", (e) => {
   salvarDefinicoes();
 });
 
+function drag() {
+  const dragArea = document.querySelector(".tarefas-adicionadas");
+  new Sortable(dragArea, {
+    animation: 250,
+  });
+}
+
 recuperarDados();

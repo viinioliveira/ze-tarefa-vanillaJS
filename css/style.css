@@ -181,7 +181,7 @@ body, html {
 }
 
 .botao-config {
-    width: 15px;
+
     margin: 20px;
     align-self: flex-end;
     cursor: pointer;
@@ -257,7 +257,8 @@ body, html {
     }
 
     .modal-config {
-        width: 30%;
+        width: 20%;
+        height: 200px;
     }
 
     .tarefas-adicionadas {
