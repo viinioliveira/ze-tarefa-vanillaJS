@@ -27,6 +27,7 @@ body, html {
 
 
 .item-adicionado {
+    width: 100%;
     margin-top: 10px;
     border-radius: 10px;
     display: flex;
@@ -95,7 +96,7 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%;
+    width: 50%;
     height: 100vh;
     padding: 5px;
     overflow-Y: auto;
@@ -256,7 +257,7 @@ body, html {
     }
 
     .item-adicionado {
-        width: 60%;
+        width: 100%;
     }
 
     .modal-config {
